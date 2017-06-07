@@ -14,7 +14,7 @@ curl_close($ch);
 // $pattern="/<li><a title=\"(.*)\" target=\"_blank\" href=\"(.*)\">/iUs";//正则
 $prel = "/<tr><td><a href=\"(.*)\">(.*)<\/a><\/td><\/tr>/";
 preg_match_all($prel, $output, $arr);
-var_dump($arr);
+// var_dump($arr);
 // print_r($output);
  ?>
 
@@ -44,7 +44,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="search-box">
 			   <div id="sb-search" class="sb-search">
 				  <form method="post" action="search.php">
-					 <input class="sb-search-input" placeholder="Enter your search term..." type="search" name="aaa" id="search">
+					 <input class="sb-search-input" placeholder="Enter your search term..." type="search" name="keyword" id="search">
 					 <input class="sb-search-submit" type="submit" value="">
 					 <span class="sb-icon-search"> </span>
 				  </form>
@@ -58,8 +58,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			   </script>
 				<!----//search-scripts---->
 				<div class="container">
-					<div class="banner-info">
-						  <?php echo $arr[0][0] ?>
+					<div class="banner-info" style="background:#ffffff">
+						  <?php
+              if(isset($arr[0][0])){
+                echo $arr[0][0];
+              }else{
+                echo '无相关商品';
+              }
+
+
+              ?>
             </div>
 					 <div class="clearfix"></div>
 			   </div>
